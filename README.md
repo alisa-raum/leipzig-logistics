@@ -33,10 +33,9 @@ Vienna, 2025**.
 | Parcel lockers, pickup points, retail, vacant shops | OpenStreetMap via Overpass API | Leipzig, 2024 | `01_osm_logistics.R` |
 | DHL Packstation locations | DHL Location Finder API | Leipzig, 2024 | `02_dhl_api.R` |
 | Place ratings and user reviews | Google Places API | Leipzig, 2024 | `03_google_places.R` |
-| District boundaries (Ortsteile) | Stadtplan Leipzig / opendata.leipzig.de | 2024 | `04_inequality.R` |
-| Population by district | Stadtplan Leipzig (Einwohner Jahreszahlen) | 2000–2024 | `04_inequality.R` |
-| Land value by zone | Bodenrichtwerte 2024, Stadt Leipzig | 2024 | `04_inequality.R` |
-
+| District boundaries (Ortsteile) | Stadtplan Leipzig / opendata.leipzig.de | 2024 | `02_logistic_inequality.R` |
+| Population by district | Stadtplan Leipzig (Einwohner Jahreszahlen) | 2000–2024 | `02_logistic_inequality.R` |
+| Land value by zone | Bodenrichtwerte 2024, Stadt Leipzig | 2024 | `02_logistic_inequality.R` |
 ---
 
 ## Scripts
