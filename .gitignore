@@ -3,3 +3,6 @@
 .RData
 .Ruserdata
 .env
+.DS_Store
+/plots.DS_Store
+*.Rproj
