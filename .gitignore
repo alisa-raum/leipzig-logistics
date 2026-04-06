@@ -6,3 +6,4 @@
 .DS_Store
 /plots.DS_Store
 *.Rproj
+plots/
