@@ -136,3 +136,71 @@ Part of a broader research interest in platform economies, urban
 logistics, and spatial justice.
 
 Feedback and collaboration welcome.
+
+---
+
+## Berlin — comparative analysis
+
+To test whether patterns observed in Leipzig generalise to a larger 
+German city, the project includes a parallel analysis of Berlin.
+
+Berlin provides a useful comparison case: it is approximately 8x larger 
+than Leipzig by population, has a more complex socio-spatial structure, 
+and represents a different trajectory of post-reunification development.
+
+### Data sources (Berlin)
+
+| Dataset | Source | Coverage | Script |
+|---|---|---|---|
+| Parcel lockers, pickup points, retail, vacant shops | OpenStreetMap via Overpass API | Berlin, 2024 | `06_berlin_analysis.R` |
+| DHL Packstation locations | DHL Location Finder API | Berlin, 2024 | `06_berlin_analysis.R` |
+| Place ratings and user reviews | Google Places API | Berlin, 2024–2025 | `06_berlin_analysis.R` |
+| District boundaries (Bezirke) | Senatsverwaltung Berlin / daten.berlin.de | 2024 | `06_berlin_analysis.R` |
+| Population by district | Amt für Statistik Berlin-Brandenburg (LOR) | 2025 | `06_berlin_analysis.R` |
+| Land value by zone | Bodenrichtwerte 2026, Senatsverwaltung Berlin | 2026 | `06_berlin_analysis.R` |
+
+### Key findings (Berlin)
+
+- Berlin has **791 parcel locker and pickup points** in OSM plus 
+  additional DHL Packstations — significantly more than Leipzig 
+  in absolute terms, but comparable when normalised by area
+- Land value correlates with locker density (Spearman r = **0.7+**) 
+  more strongly than in Leipzig — Friedrichshain-Kreuzberg is a 
+  clear outlier with high density and high land value
+- **Charlottenburg-Wilmersdorf** shows the paradox of expensive land 
+  with moderate logistics density — suggesting that wealthy districts 
+  substitute delivery with quality retail
+- **Lichtenberg** mirrors Leipzig's Eutritzsch pattern: low land value 
+  but high logistics density driven by residential population density
+
+### Leipzig vs Berlin — comparative insight
+
+Both cities show a moderate positive correlation between land value 
+and logistics infrastructure density. However, the mechanisms differ:
+
+- In **Leipzig**, logistics follows both land value and population 
+  density, with working-class districts like Eutritzsch and Paunsdorf 
+  showing anomalously high density
+- In **Berlin**, the correlation is stronger and driven more clearly 
+  by gentrification patterns — Friedrichshain-Kreuzberg dominates
+
+This suggests that last-mile logistics infrastructure is not simply 
+a function of purchasing power, but also of urban density, 
+demographic composition, and the pace of gentrification.
+
+### Berlin maps (interactive HTML)
+
+All Berlin maps are saved in `/plots/berlin`:
+
+| File | Description |
+|---|---|
+| `berlin_map1_absolute.html` | Total lockers by Bezirk |
+| `berlin_map2_per_km2.html` | Locker density per km² |
+| `berlin_map2b_per_1000.html` | Lockers per 1,000 inhabitants |
+| `berlin_map3_index.html` | Logistics vs. retail index |
+| `berlin_map_land_value.html` | Land value by Bezirk (BRW 2026) |
+| `berlin_map_ratings_logistics.html` | DHL Packstation ratings by Bezirk |
+| `berlin_map_ratings_retail.html` | Small retail ratings by Bezirk |
+| `berlin_map_point_ratings.html` | Individual place ratings |
+| `berlin_map_brw_correlation.png` | Land value vs. logistics density scatter |
+| `comparison_leipzig_berlin.png` | Leipzig vs Berlin density comparison |
