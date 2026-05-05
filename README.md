@@ -86,58 +86,41 @@ All maps are saved in `/plots` as interactive HTML files:
 
 ---
 
-## Data limitations
+## Maps preview
 
-**OpenStreetMap** data quality varies by district. OSM coverage is 
-generally strong in central Leipzig but may underrepresent peripheral 
-areas. Vacant retail units in particular are likely undercounted — 
-OSM contributors do not systematically track closures.
+### Leipzig
 
-**Other carriers** (Hermes, Amazon Locker, DPD, GLS) do not provide 
-public APIs. Their locators are web-only tools without documented 
-endpoints. Scraping would violate their Terms of Service and compromise 
-reproducibility. These carriers appear in the dataset only through 
-OSM-contributed data.
+![Total lockers by district](img/map1_absolute.png)
+*Total number of parcel lockers and pickup points by district*
 
-**Google Places API** returns a maximum of 20 results per query. 
-Coverage of small retail is partial — the search term 
-`"Lebensmittel Laden"` captures only a subset of food retail. 
-A systematic coverage would require a broader set of search terms 
-and queries.
+![Logistics vs retail index](img/map4_index.png)
+*Logistics vs. small retail index — blue districts have more retail, red have more logistics*
 
-A more complete picture would require official data-sharing agreements 
-with carriers, or a systematic OSM mapping campaign — both possible 
-directions for future work.
+![Land value by district](img/map5_land_value.png)
+*Land value (Bodenrichtwert 2024) by district*
 
----
+![Land value vs logistics correlation](img/correlation_brw.png)
+*Spearman r = 0.52: moderate positive correlation between land value and logistics density*
 
-## Reproducibility
+### Berlin
 
-All data collection scripts are documented and reproducible. 
-API keys (DHL, Google) are stored locally in `.env` and excluded 
-from the repository via `.gitignore`.
+![Total lockers Berlin](img/berlin_map1.png)
+*Total number of parcel lockers and pickup points by Bezirk*
 
-To reproduce:
-1. Clone the repository
-2. Add your API keys to `.env`
-3. Run scripts in order: `01_osm_logistics` → `03_dhl_api` → `03_google_places` → `02_logistic_inequality` → `04_combine_map` → `05_ratings_map`
-R version: 4.5.3. Key packages: `tidyverse`, `sf`, `tmap`, `httr2`, 
-`osmdata`, `googleway`.
+![Logistics vs retail index](img/map4_index_berlin.png)
+*Logistics vs. small retail index — blue districts have more retail, red have more logistics*
 
----
+![Land value Berlin](img/berlin_map_land_value.png)
+*Land value (Bodenrichtwert 2026) by Bezirk*
 
-## About
+![Land value vs logistics Berlin](img/correlation_berlin.png)
+*Land value vs. logistics density — Friedrichshain-Kreuzberg as outlier*
 
-This is a learning project in R and open data analysis,  
-developed as part of building a computational social science portfolio.  
-Conducted in Leipzig, 2025–2026.
+### Leipzig vs Berlin
 
-Part of a broader research interest in platform economies, urban 
-logistics, and spatial justice.
+![Comparison](img/comparison.png)
+*Distribution of locker density per km² — Leipzig districts vs Berlin Bezirke*
 
-Feedback and collaboration welcome.
-
----
 
 ## Berlin — comparative analysis
 
@@ -204,3 +187,58 @@ All Berlin maps are saved in `/plots/berlin`:
 | `berlin_map_point_ratings.html` | Individual place ratings |
 | `berlin_map_brw_correlation.png` | Land value vs. logistics density scatter |
 | `comparison_leipzig_berlin.png` | Leipzig vs Berlin density comparison |
+
+
+
+## Data limitations
+
+**OpenStreetMap** data quality varies by district. OSM coverage is 
+generally strong in central Leipzig but may underrepresent peripheral 
+areas. Vacant retail units in particular are likely undercounted — 
+OSM contributors do not systematically track closures.
+
+**Other carriers** (Hermes, Amazon Locker, DPD, GLS) do not provide 
+public APIs. Their locators are web-only tools without documented 
+endpoints. Scraping would violate their Terms of Service and compromise 
+reproducibility. These carriers appear in the dataset only through 
+OSM-contributed data.
+
+**Google Places API** returns a maximum of 20 results per query. 
+Coverage of small retail is partial — the search term 
+`"Lebensmittel Laden"` captures only a subset of food retail. 
+A systematic coverage would require a broader set of search terms 
+and queries.
+
+A more complete picture would require official data-sharing agreements 
+with carriers, or a systematic OSM mapping campaign — both possible 
+directions for future work.
+
+---
+
+## Reproducibility
+
+All data collection scripts are documented and reproducible. 
+API keys (DHL, Google) are stored locally in `.env` and excluded 
+from the repository via `.gitignore`.
+
+To reproduce:
+1. Clone the repository
+2. Add your API keys to `.env`
+3. Run scripts in order: `01_osm_logistics` → `03_dhl_api` → `03_google_places` → `02_logistic_inequality` → `04_combine_map` → `05_ratings_map`
+R version: 4.5.3. Key packages: `tidyverse`, `sf`, `tmap`, `httr2`, 
+`osmdata`, `googleway`.
+
+---
+
+## About
+
+This is a learning project in R and open data analysis,  
+developed as part of building a computational social science portfolio.  
+Conducted in Leipzig, 2025–2026.
+
+Part of a broader research interest in platform economies, urban 
+logistics, and spatial justice.
+
+Feedback and collaboration welcome.
+
+---
